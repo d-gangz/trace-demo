@@ -1,12 +1,14 @@
 I'm trying to create a prototype to illustrate this insight with citation lineage kinds of concept.
 
-Because I'm working with a consulting firm, and they want to build an AI-powered research tool. And now the main concern is the confidence in insights — how data flows, transforms, and cites sources. A live demo showing that lineage end-to-end will signal that you’ve understood their core need.
+Because I'm working with a consulting firm, and they want to build an AI-powered research tool. And now the main concern is the confidence in insights — how data flows, transforms, and cites sources.
+
+So I want to build a demo showing that lineage end-to-end for an insights report. so like in the insights report, there are citations then user view the citation lineage for each citation too.
 
 **IMPORTANT** first read all the documents inside /references folder to gain more context.
 
 Requirements:
 
-1. An insight like as a markdown doc. Maybe do it as like a sample report.
+1. An insight report that is a markdown doc. this insight report also contains citations
 2. some sample raw sources and also other insights that is referenced in the sample report. It's important to have a combination of raw sources and also insets because these insets are previously synthesized from other raw sources.
 3. create sample sqlite databases to stores these synthetic information. I was thinking maybe:
 
