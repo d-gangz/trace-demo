@@ -1,5 +1,5 @@
 /**
- * Recursive tree component for visualizing citation lineage with connection lines and metadata.
+ * Recursive tree component for visualizing citation lineage with indentation and metadata.
  *
  * Input data sources: LineageNode array from server actions
  * Output destinations: Visual tree display in lineage sheet

@@ -1,5 +1,5 @@
 /**
- * Popover component displaying citation source preview with stage badge and metadata.
+ * Popover component displaying citation source preview with chunk ID and metadata.
  *
  * Input data sources: Chunk data from parent component
  * Output destinations: Triggers onViewFull callback for full lineage view
