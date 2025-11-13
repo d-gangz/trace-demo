@@ -39,3 +39,8 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# database
+data/trace-demo.db
+data/trace-demo.db-shm
+data/trace-demo.db-wal
