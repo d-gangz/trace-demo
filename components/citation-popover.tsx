@@ -41,14 +41,9 @@ export function CitationPopover({
     return <>{children}</>;
   }
 
-  const stageBadgeColor =
-    {
-      0: "bg-gray-500 text-white",
-      1: "bg-blue-500 text-white",
-      2: "bg-purple-500 text-white",
-    }[chunk.stage] || "bg-gray-500 text-white";
-
-  const typeIcon = chunk.type === "raw" ? "📄" : "📊";
+  const badgeColor = chunk.type === "insight"
+    ? "bg-blue-500 text-white"
+    : "bg-gray-500 text-white";
 
   return (
     <Popover open={open} onOpenChange={onOpenChange}>
@@ -57,8 +52,7 @@ export function CitationPopover({
         <div className="space-y-3">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
-              <span className="text-lg">{typeIcon}</span>
-              <Badge className={stageBadgeColor}>Stage {chunk.stage}</Badge>
+              <Badge className={badgeColor}>{chunk.chunk_id}</Badge>
               <span className="text-sm text-muted-foreground">{marker}</span>
             </div>
           </div>
