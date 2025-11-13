@@ -36,12 +36,10 @@ export default function Home() {
         </header>
 
         {demoReport ? (
-          <div className="bg-card border rounded-lg p-6">
-            <InsightReport
-              markdown={demoReport}
-              onCitationClick={handleCitationClick}
-            />
-          </div>
+          <InsightReport
+            markdown={demoReport}
+            onCitationClick={handleCitationClick}
+          />
         ) : (
           <p className="text-muted-foreground">Loading report...</p>
         )}

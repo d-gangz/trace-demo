@@ -53,23 +53,71 @@ export function InsightReport({
   const contentWithoutReferences = markdown.split(/##\s+References/)[0];
 
   return (
-    <div className="prose dark:prose-invert max-w-none">
+    <div className="prose prose-slate dark:prose-invert max-w-none">
       <ReactMarkdown
         remarkPlugins={[remarkGfm]}
         components={{
-          // Custom renderer for text nodes to replace citation markers
-          p: ({ children, ...props }) => {
-            return (
-              <p {...props}>
-                {processTextWithCitations(
-                  children,
-                  citationMap,
-                  chunks,
-                  onCitationClick
-                )}
-              </p>
-            );
-          },
+          // Custom renderers for all text-containing elements to process citations
+          p: ({ children, ...props }) => (
+            <p {...props}>
+              {processTextWithCitations(
+                children,
+                citationMap,
+                chunks,
+                onCitationClick
+              )}
+            </p>
+          ),
+          h1: ({ children, ...props }) => (
+            <h1 {...props}>
+              {processTextWithCitations(
+                children,
+                citationMap,
+                chunks,
+                onCitationClick
+              )}
+            </h1>
+          ),
+          h2: ({ children, ...props }) => (
+            <h2 {...props}>
+              {processTextWithCitations(
+                children,
+                citationMap,
+                chunks,
+                onCitationClick
+              )}
+            </h2>
+          ),
+          h3: ({ children, ...props }) => (
+            <h3 {...props}>
+              {processTextWithCitations(
+                children,
+                citationMap,
+                chunks,
+                onCitationClick
+              )}
+            </h3>
+          ),
+          h4: ({ children, ...props }) => (
+            <h4 {...props}>
+              {processTextWithCitations(
+                children,
+                citationMap,
+                chunks,
+                onCitationClick
+              )}
+            </h4>
+          ),
+          li: ({ children, ...props }) => (
+            <li {...props}>
+              {processTextWithCitations(
+                children,
+                citationMap,
+                chunks,
+                onCitationClick
+              )}
+            </li>
+          ),
         }}
       >
         {contentWithoutReferences}
