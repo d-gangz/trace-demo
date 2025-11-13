@@ -11,7 +11,6 @@
 "use server";
 
 import {
-  getDb,
   getChunk as dbGetChunk,
   getDirectCitations as dbGetDirectCitations,
   getFullLineage as dbGetFullLineage,

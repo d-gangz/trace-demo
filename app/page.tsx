@@ -30,7 +30,7 @@ export default function Home() {
         <header className="mb-8">
           <h1 className="text-3xl font-bold mb-2">Citation Lineage Demo</h1>
           <p className="text-muted-foreground">
-            Hover over citations to see source preview, click "View Full" to
+            Hover over citations to see source preview, click &quot;View Full&quot; to
             explore complete lineage
           </p>
         </header>

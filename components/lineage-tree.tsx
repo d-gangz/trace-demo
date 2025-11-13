@@ -24,12 +24,11 @@ export function LineageTree({ nodes, level = 0 }: LineageTreeProps) {
 
   return (
     <div className="space-y-3">
-      {nodes.map((node, index) => (
+      {nodes.map((node) => (
         <TreeNode
           key={node.chunk_id}
           node={node}
           level={level}
-          isLast={index === nodes.length - 1}
         />
       ))}
     </div>
@@ -39,10 +38,9 @@ export function LineageTree({ nodes, level = 0 }: LineageTreeProps) {
 interface TreeNodeProps {
   node: LineageNode;
   level: number;
-  isLast: boolean;
 }
 
-function TreeNode({ node, level, isLast }: TreeNodeProps) {
+function TreeNode({ node, level }: TreeNodeProps) {
   const { chunk, children } = node;
 
   const stageBadgeColor =
