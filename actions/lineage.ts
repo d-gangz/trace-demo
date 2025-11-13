@@ -59,6 +59,7 @@ export async function getFullLineage(chunkId: string): Promise<LineageNode[]> {
       chunk_id: row.target_chunk_id,
       depth: row.depth,
       chunk,
+      citation_marker: row.citation_marker,
       children: [],
     });
   }

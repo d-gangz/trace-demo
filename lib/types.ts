@@ -22,6 +22,7 @@ export interface Chunk {
 export interface Citation {
   source_chunk_id: string;
   target_chunk_id: string;
+  citation_marker?: string;
   relationship_type: string;
 }
 
@@ -29,6 +30,7 @@ export interface LineageNode {
   chunk_id: string;
   depth: number;
   chunk: Chunk;
+  citation_marker?: string;
   children: LineageNode[];
 }
 
