@@ -44,6 +44,7 @@ export interface Chunk {
 export interface Citation {
   source_chunk_id: string;
   target_chunk_id: string;
+  citation_marker?: string;
   relationship_type: string;
 }
 
@@ -56,7 +57,7 @@ export function getChunk(chunkId: string): Chunk | null {
 export function getDirectCitations(chunkId: string): Citation[] {
   const db = getDb();
   const stmt = db.prepare(`
-    SELECT source_chunk_id, target_chunk_id, relationship_type
+    SELECT source_chunk_id, target_chunk_id, citation_marker, relationship_type
     FROM citations
     WHERE source_chunk_id = ?
   `);
@@ -67,6 +68,7 @@ export interface LineageRow {
   target_chunk_id: string;
   depth: number;
   parent_id: string;
+  citation_marker?: string;
 }
 
 export function getFullLineage(chunkId: string): LineageRow[] {
@@ -77,7 +79,8 @@ export function getFullLineage(chunkId: string): LineageRow[] {
       SELECT
         target_chunk_id,
         1 as depth,
-        source_chunk_id as parent_id
+        source_chunk_id as parent_id,
+        citation_marker
       FROM citations
       WHERE source_chunk_id = ?
 
@@ -87,7 +90,8 @@ export function getFullLineage(chunkId: string): LineageRow[] {
       SELECT
         c.target_chunk_id,
         l.depth + 1,
-        c.source_chunk_id as parent_id
+        c.source_chunk_id as parent_id,
+        c.citation_marker
       FROM citations c
       INNER JOIN lineage l ON c.source_chunk_id = l.target_chunk_id
       WHERE l.depth < 10
